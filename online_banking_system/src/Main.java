@@ -307,6 +307,7 @@ public class Main {
                 if (ans > 0 && ans <= 10) {
                     break;
                 }
+                
                 System.out.println("Invalid Input");
             }
             switch (ans) {
