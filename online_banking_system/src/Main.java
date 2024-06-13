@@ -280,6 +280,10 @@ public class Main {
         }
         return 0;
     }
+    static void viewBalance(int id){
+        CustomerAccount account=accounts.get(id-1);
+        System.out.println("Account balance: "+ account.getBalance());
+    }
     static void mainMenu(int id) {
         int ans;
         do {
@@ -294,12 +298,13 @@ public class Main {
                     Display account with (6),
                     Display monthly transactions with (7),
                     Export transactions history with (8),
-                    Return login menu with (9)
+                    View Balance with (9),
+                    Return login menu with (10)
                     """);
             System.out.println("Press Enter a number to continue");
             while (true) {
                 ans = sc.hasNextInt() ? sc.nextInt() : 0;
-                if (ans > 0 && ans <= 8) {
+                if (ans > 0 && ans <= 10) {
                     break;
                 }
                 System.out.println("Invalid Input");
@@ -329,15 +334,18 @@ public class Main {
                     display(id);
                     break;
                 case 7:
-                displayMonthlyTransactions(id);
+                    displayMonthlyTransactions(id);
                     break;
                 case 8:
                     transactionsReport(id);
                     break;
+                case 9:
+                    viewBalance(id);
+                    break;
                 default:
                     break;
             }
-        } while (ans != 9);
+        } while (ans != 10);
         loginMenu();
     }
     static void loginMenu() {
@@ -480,6 +488,6 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-       loginMenu();
+        loginMenu();
     }
 }
