@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    static String adminPassword="humbet2006";
+    // Read from the environment so no password is committed; falls back to "admin".
+    static String adminPassword =
+            System.getenv().getOrDefault("ADMIN_PASSWORD", "admin");
     static Scanner sc = new Scanner(System.in);
     static List<CustomerAccount> accounts= new ArrayList<>();
     static void addCustomerAccount(){
